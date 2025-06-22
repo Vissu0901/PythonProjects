@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complexity Analysis Report - Ari.py</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; }
+        h1 { color: #2c3e50; }
+        h2 { color: #2980b9; }
+        table { border-collapse: collapse; width: 80%; margin-bottom: 2em; }
+        th, td { border: 1px solid #bbb; padding: 8px 12px; }
+        th { background: #e0e0e0; }
+        .section { margin-bottom: 2em; }
+    </style>
+</head>
+<body>
+    <h1>Complexity Analysis Report</h1>
+    <h2>File: Ari.py</h2>
+
+    <div class="section">
+        <h2>1. Time Complexity</h2>
+        <table>
+            <tr>
+                <th>Functionality</th>
+                <th>Time Complexity</th>
+                <th>Explanation</th>
+            </tr>
+            <tr>
+                <td>calculate()</td>
+                <td>O(1)</td>
+                <td>
+                    Each arithmetic operation (add, subtract, multiply, divide) is performed on two numbers with constant-time operations.<br>
+                    Input parsing and UI updates are also O(1).
+                </td>
+            </tr>
+            <tr>
+                <td>entry_placeholder()</td>
+                <td>O(1)</td>
+                <td>
+                    Sets up event bindings and placeholder text for Entry widgets. All operations are constant time.
+                </td>
+            </tr>
+            <tr>
+                <td>UI Setup</td>
+                <td>O(1)</td>
+                <td>
+                    All widget creations and pack/grid operations are constant time with respect to the number of widgets (which is fixed).
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>2. Space Complexity</h2>
+        <table>
+            <tr>
+                <th>Functionality</th>
+                <th>Space Complexity</th>
+                <th>Explanation</th>
+            </tr>
+            <tr>
+                <td>calculate()</td>
+                <td>O(1)</td>
+                <td>
+                    Uses a fixed number of variables (num1, num2, result, op). No data structures grow with input size.
+                </td>
+            </tr>
+            <tr>
+                <td>entry_placeholder()</td>
+                <td>O(1)</td>
+                <td>
+                    Only binds events and sets placeholder text. No additional space usage per input.
+                </td>
+            </tr>
+            <tr>
+                <td>UI Setup</td>
+                <td>O(1)</td>
+                <td>
+                    The number of widgets is fixed and does not depend on user input.
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>3. Summary</h2>
+        <p>
+            The application is highly efficient in both time and space. All operations are performed in constant time and space, as the program only deals with a fixed number of UI elements and simple arithmetic on two numbers at a time.
+        </p>
+        <ul>
+            <li><b>Time Complexity:</b> O(1) for all user actions.</li>
+            <li><b>Space Complexity:</b> O(1) for all user actions.</li>
+        </ul>
+    </div>
+</body>
+</html>
+
