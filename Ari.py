@@ -2,6 +2,10 @@
 import tkinter as tk
 
 def calculate():
+    # Check if both entries are empty or contain only the placeholder
+    if (entry1.get() == "" or entry1.get() == "Enter number") and (entry2.get() == "" or entry2.get() == "Enter number"):
+        result_label.config(text="Please enter valid numbers.")
+        return
     try:
         num1 = float(entry1.get()) if entry1.get() != "Enter number" else 0
         num2 = float(entry2.get()) if entry2.get() != "Enter number" else 0
@@ -22,14 +26,14 @@ def calculate():
             return
         result_label.config(text=f"Result: {result}")
     except ValueError:
-        # Handle the case where the input is not a number
+        # Show message for non-numeric input
+        result_label.config(text="Please enter only numeric")
         entry1.delete(0, tk.END)
         entry2.delete(0, tk.END)
         entry1.insert(0, "Enter number")
         entry2.insert(0, "Enter number")
         entry1.config(fg="grey")
         entry2.config(fg="grey")
-        result_label.config(text="Please enter valid numbers.")
 
 def entry_placeholder(entry):
     def on_focus_in(event):
@@ -48,7 +52,7 @@ def entry_placeholder(entry):
 # Create the main window
 root = tk.Tk()
 root.title("Arithmetic Operations")
-root.geometry("300x350")
+root.geometry("300x250")
 root.configure(bg="white")
 
 # set window display center of screen
@@ -56,7 +60,7 @@ root.update_idletasks()
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 window_width = 300
-window_height = 350
+window_height = 250
 x = (screen_width // 2) - (window_width // 2)
 y = (screen_height // 2) - (window_height // 2)
 root.geometry(f"{window_width}x{window_height}+{x}+{y}")
@@ -79,7 +83,6 @@ entry2 = tk.Entry(frame2, width=15, bg="white")
 entry2.pack(side=tk.RIGHT, fill=tk.X, expand=True, padx=5)
 entry_placeholder(entry2)
 
-# Dropdown menu for operations
 operations = ["Add", "Subtract", "Multiply", "Divide"]
 operation_var = tk.StringVar(root)
 operation_var.set(operations[0])
@@ -88,7 +91,7 @@ operation_menu.config(bg="#ADD8E6", fg="black", font=("Arial", 10, "bold"))
 operation_menu.pack(pady=10)
 
 # Submit button
-submit_button = tk.Button(root, text="Calculate", bg="#4CAF50", fg="white", command=calculate)
+submit_button = tk.Button(root, text="Calculate", bg="#4CAF50", fg="white", font=("Arial", 10, "bold"), command=calculate)
 submit_button.pack(pady=10)
 
 # Result label
